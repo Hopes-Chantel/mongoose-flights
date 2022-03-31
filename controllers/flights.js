@@ -7,13 +7,15 @@ module.exports = {
 };
 
 function index(req, res){
-    Flight.find({}, function(err, flights) {
-      res.render('flights/index', {
-      flights, 
-      title: 'All Flights'
-    });
-  });
-  }
+    Flight.find({}).sort([['departs', +1]]).exec(function(err, flights) {
+        res.render('flights/index', {
+        flights, 
+        title: 'All Flights'
+        });
+      });
+    }
+  
+
 
   function newFlight(req, res) {
     res.render('flights/new');
@@ -28,3 +30,4 @@ function index(req, res){
         res.redirect('/flights/new');
     })
 };  
+

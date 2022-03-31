@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel='stylesheet' href='/stylesheets/style.css' />
-  <title>Mongoose Movies</title>
+  <title>Mongoose Flights</title>
 </head>
+<div class="topnav">
+    <a href = "/flights">All Flights</a>
+    <a href = "/flights/new">Add Flight</a>
+  </div>
 <body>
   <h1>Flights</h1>
   <table>
@@ -19,14 +23,18 @@
           </tr>
       </thead>
       <tbody>
-          <% flights.forEach(function(f) { %>
-              <tr>
-                  <td><%= f.airline %></td>
-                  <td><%= f.airport %></td>
-                  <td><%= f.flightNo %></td>
-                  <td><%= f.departs %></td>
-              </tr>
-          <% }); %>
+        <% flights.forEach(function(f) { %>
+          <tr>
+            <td><%= f.airline %></td>
+            <td><%= f.airport %></td>
+            <td><%= f.flightNo %></td>
+            <% if (f.departs < new Date()) { %> 
+            <td class="over"><%= f.departs %></td>
+               <% } else { %> 
+                 <td><%= f.departs %></td>  
+               </tr>
+              <% } %> 
+        <% }); %>
       </tbody>
   </table>
 </body>

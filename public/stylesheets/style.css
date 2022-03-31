@@ -22,3 +22,7 @@ a {
   background-color: #ddd;
   color: black;
 }
+.over {
+  color: red;
+  font-weight: bold;
+}
