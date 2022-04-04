@@ -73,17 +73,15 @@
                   Seat
               </th>
               <th>
-                  Price
+                  Price $
               </th>
-            </form>
           </thead>
                         <% tickets.forEach(function(ticket) { %>
                             <tr>
                                 <td><%= ticket.seat %></td>
                                 <td><%= ticket.price %></td>
-                  
-
+                              </form>
               <% }) %>
                     </table>
-                
+         
                 <a href="/flights/<%= flight._id %>/tickets/new" id="ticket-create">Create a new ticket</a>

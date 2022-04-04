@@ -14,6 +14,8 @@ function create(req, res) {
 	flightId = req.params.id;
 	req.body.flight = flightId;
 	Ticket.create(req.body, function(err, ticket) {
+    console.log(err)
+    console.log(ticket)
 		res.redirect(`/flights/${flightId}`);
 	});
 }
