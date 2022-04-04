@@ -22,11 +22,8 @@
         <div><%= flight.flightNo %></div>
         <div>Departure Date: </div>
         <div><%= flight.departs %></div>
-        <div>Arrival Airport</div>
-        <div><%= flight.destination.airport %></div>
-        <div>Arrival Time</div>
-        <div><%= flight.destination.arrival %></div>  
     </section>
+
 
       <br><br><br><h2>Destination(s)</h2>
 <% if (flight.destination.length) { %> 
@@ -65,4 +62,28 @@
         <input type="submit" value="Add Destination">
         </form>    
 
+      </section>
+    </div>   
+    <div>
+      <h2>Tickets</h2>
+      <form id="tickets-table" method="POST" action="/flights/<%= flight._id %>/tickets/new">
+    <table class="table" id="tickets-table">
+          <thead>
+              <th>
+                  Seat
+              </th>
+              <th>
+                  Price
+              </th>
+            </form>
+          </thead>
+                        <% tickets.forEach(function(ticket) { %>
+                            <tr>
+                                <td><%= ticket.seat %></td>
+                                <td><%= ticket.price %></td>
+                  
 
+              <% }) %>
+                    </table>
+                
+                <a href="/flights/<%= flight._id %>/tickets/new" id="ticket-create">Create a new ticket</a>
